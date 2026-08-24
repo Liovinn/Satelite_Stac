@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Satellite Viewer</title>
+
+    <!-- Leaflet CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- Leaflet Draw CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"
+    >
+
+    <!-- Our CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- ================================================== -->
+    <!-- MAP -->
+    <!-- ================================================== -->
+
+    <div id="map"></div>
+
+
+    <!-- ================================================== -->
+    <!-- TOP LEFT CONTROL -->
+    <!-- ================================================== -->
+
+    <div class="control-panel">
+
+        <div class="panel-title">
+            Satellite Viewer
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-label">
+            Search location
+        </div>
+
+        <div class="search-container">
+
+            <input
+                id="location-search"
+                type="text"
+                placeholder="Search location..."
+            >
+
+            <button
+                id="search-button"
+                title="Search"
+            >
+                🔍
+            </button>
+
+        </div>
+
+
+        <!-- AOI -->
+
+        <div class="section">
+
+            <div class="section-title">
+                Area of Interest
+            </div>
+
+
+            <div class="aoi-actions">
+
+                <button
+                    id="upload-button"
+                    class="action-button"
+                >
+                    Upload AOI
+                </button>
+
+
+                <button
+                    id="draw-button"
+                    class="action-button"
+                >
+                    Draw polygon
+                </button>
+
+                <button
+                    id="clear-button"
+                    class="action-button"
+                >
+                    Clear AOI
+                </button>
+
+            </div>
+
+
+            <input
+                id="file-input"
+                type="file"
+                accept=".geojson,.json,.gpkg,.shp,.zip"
+                hidden
+            >
+
+        </div>
+
+
+        <!-- NDVI -->
+
+        <div class="section">
+
+            <div class="section-title">
+                NDVI Analysis
+            </div>
+
+            <button
+                id="ndvi-button"
+                class="action-button"
+            >
+                Analyze NDVI
+            </button>
+
+        </div>
+
+        <!-- STATUS -->
+
+        <div class="section-title">
+            Status
+        </div>
+
+        <div
+            id="status"
+            class="status"
+        >
+            Select an area to begin.
+        </div>
+
+        <!-- NDVI RESULTS PANEL (hidden until analysis runs) -->
+
+        <div
+            id="ndvi-panel"
+            class="ndvi-panel"
+        >
+
+            <div class="section-title">
+                NDVI Statistics
+            </div>
+
+            <div
+                id="ndvi-stats"
+                class="ndvi-stats"
+            >
+            </div>
+
+            <div class="section-title">
+                Distribution
+            </div>
+
+            <div
+                id="ndvi-histogram"
+                class="ndvi-histogram"
+            >
+            </div>
+
+            <div class="section-title">
+                Legend
+            </div>
+
+            <div class="ndvi-legend">
+                <span
+                    id="ndvi-legend-min"
+                    class="ndvi-legend-label"
+                >
+                    -1.0
+                </span>
+                <div class="ndvi-legend-bar"></div>
+                <span
+                    id="ndvi-legend-max"
+                    class="ndvi-legend-label"
+                >
+                    +1.0
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Leaflet JS -->
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+
+
+    <!-- Leaflet Draw JS -->
+
+    <script
+        src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"
+    ></script>
+
+
+    <!-- Our JS -->
+
+    <script
+        src="app.js"
+    ></script>
+
+</body>
+
+</html>
